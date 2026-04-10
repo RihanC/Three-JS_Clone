@@ -8,6 +8,7 @@ html, body,
 #root {
   width: 100%;
   background-color: black;
+  color: whitesmoke;
 }
 
 main{
@@ -27,8 +28,23 @@ section{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-top: 3.5rem;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
     .nav-elem{
       max-width: 10 rem;
     }
   }
+
+  svg{
+    height: 70%;
+    width: 70%;
+  }
+
+  i{
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+
 }
