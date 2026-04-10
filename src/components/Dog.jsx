@@ -4,7 +4,7 @@ import { Canvas } from '@react-three/fiber'
 import { useThree } from '@react-three/fiber'
 import { OrbitControls, useGLTF, useTexture , useAnimations} from '@react-three/drei'
 import { normalMap } from 'three/tsl'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import {useGSAP} from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -71,6 +71,28 @@ const Dog = () => {
             child.material = branchMaterial
         }
     })
+
+    const dogModel = useRef(model);
+
+    useGSAP(() =>{
+
+        
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#section-1",
+                endTrigger: "#section-3",
+                start: "top top",
+                end: "bottom bottom",
+                markers: true,
+                scrub: true,
+            }
+        })
+
+        tl.to(dogModel.current.scene.position,{
+            z:"-0.3",
+            y:"+0.00002",
+        })
+    } ,[])
 
     return (
         <>
