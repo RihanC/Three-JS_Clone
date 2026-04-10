@@ -16,8 +16,19 @@ main{
 
 section{
   min-height: 100vh;
-  border: 2px solid white;
+  border: 2px solid rgb(0, 0, 0);
   position: relative;
   z-index: 2;
 
+}
+
+#section-1{
+  nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .nav-elem{
+      max-width: 10 rem;
+    }
+  }
 }
