@@ -5,8 +5,15 @@ import { useThree } from '@react-three/fiber'
 import { OrbitControls, useGLTF, useTexture , useAnimations} from '@react-three/drei'
 import { normalMap } from 'three/tsl'
 import { useEffect } from 'react'
+import gsap from 'gsap'
+import {useGSAP} from '@gsap/react'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
 
 const Dog = () => {
+
+    gsap.registerPlugin(ScrollTrigger)
+    gsap.registerPlugin(useGSAP())
 
     const model = useGLTF("/models/dog.drc.glb")
 
@@ -26,20 +33,21 @@ const Dog = () => {
     }, [actions])
 
 
-    // const texture = useTexture({
-    //     normalMap: "/models/dog_normals.jpg",
-    //     sampleMatCap : "/matcap/mat-19.jpg"
-    // }, (texture)=>{
-
-    // })
-
-    const[normalMap, sampleMatCap, branchMap, branchNormalMap] = useTexture([
+    const[normalMap, sampleMatCap] = useTexture([
         "/models/dog_normals.jpg",
         "/matcap/mat-19.jpg",
         "/models/branches_diffuse.jpeg",
         "/models/branches_normals.jpeg"
     ]).map((texture) => {
         texture.flipY = false
+        texture.colorSpace = THREE.SRGBColorSpace
+        return texture
+    })
+
+    const [branchMap, branchNormalMap] = useTexture([
+        "/models/branches_diffuse.jpeg",
+        "/models/branches_normals.jpeg"
+    ]).map((texture) => {
         texture.colorSpace = THREE.SRGBColorSpace
         return texture
     })
@@ -68,7 +76,6 @@ const Dog = () => {
         <>
         <primitive object={model.scene} position={[0.2, -0.5, 0]} rotation={[0, Math.PI/3.7, 0]} />
         <directionalLight position={[0, 5, 5]} color={0xffffff} intensity={10} />
-        <OrbitControls />
         </>
 
 
