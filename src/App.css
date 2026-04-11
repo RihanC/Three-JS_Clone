@@ -46,5 +46,59 @@ section{
     cursor: pointer;
   }
 
+  .middle{
+
+    display: flex;
+    .left, .right{
+      width: 50%;
+
+    }
+
+    .left{
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      text-align: right;
+      padding-block: 6.7rem;
+    }
+
+    h1{
+      font-size: 7rem;
+      line-height: 5rem;
+      font-weight: 800;
+    }
+  }
+
+  .bottom{
+    display: flex;
+
+    .left, .right{
+      width: 50%;
+    }
+  }
+
+  p{
+    font-size: 1.5rem;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+    padding-top: 3.5rem;
+  }
+
+  .first-line{
+    width: 70vh;
+    height: 0.1rem;
+    background-color: rgb(255, 0, 0);
+    position: absolute;
+    transform: rotate(45deg) translate(0,-20rem);
+  }
+
+    .second-line{
+    width: 60vh;
+    height: 0.1rem;
+    background-color: rgb(255, 0, 0);
+    position: absolute;
+    transform: rotate(5deg) translate(67rem,-40rem);
+  }
+
 
 }
