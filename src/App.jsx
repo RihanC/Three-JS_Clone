@@ -7,17 +7,17 @@ function App() {
   return (
     <>
     <main>
-      <Canvas style={{
+      <Canvas id='canvas-elem'
+      style={{
         height: "100vh",
         width:"100vw",
         position:"fixed",
         left:0,
         top:0,
         zIndex:1,
-        backgroundImage:"url(models/golden.jpeg)",
-        backgroundRepeat:"no-repeat",
-        backgroundSize:"cover",
-        backgroundPosition:"center"
+        // backgroundImage:"url(models/golden.jpeg)",
+        // backgroundRepeat:"no-repeat",
+        // backgroundSize:"cover",
 
 
       }}>
